@@ -10,8 +10,10 @@ class App(QtWidgets.QMainWindow):
         super(App, self).__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.ui.listWidget.insertItem(0, 'Red')
-        self.ui.listWidget.insertItem(1, 'Orange')
+        # self.ui.listWidget.insertItem(0, 'Red')
+        # self.ui.listWidget.insertItem(1, 'Orange')
+        self.ui.listWidget.addItems(['sparrow', 'robin', 'crow', 'raven',
+                                  'woopecker', 'hummingbird'])
         self.ui.listWidget.clicked.connect(self.click_widget_1)
         self.ui.listWidget_2.clicked.connect(self.click_widget_2)
         self.ui.pushButton.clicked.connect(self.send_button)
