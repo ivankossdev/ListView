@@ -20,11 +20,9 @@ class App(QtWidgets.QMainWindow):
 
     def click_widget_1(self):
         self.selected = self.ui.listWidget.currentRow()
-        print(self.selected)
 
     def click_widget_2(self):
         self.selected = self.ui.listWidget_2.currentRow()
-        print(self.selected)
 
     def send_button(self):
         try:
