@@ -27,20 +27,26 @@ class App(QtWidgets.QMainWindow):
         print(self.selected)
 
     def send_button(self):
-        if self.selected is not None:
-            self.ui.listWidget_2.insertItem(self.selected,
-                                            self.ui.listWidget.takeItem(self.selected).text())
-            self.selected = None
-        else:
-            pass
+        try:
+            if self.selected is not None:
+                self.ui.listWidget_2.insertItem(self.selected,
+                                                self.ui.listWidget.takeItem(self.selected).text())
+                self.selected = None
+            else:
+                pass
+        except Exception:
+            QtWidgets.QMessageBox.information(self, "Облом", "Жми на кнопку ниже!!!")
 
     def resend_button(self):
-        if self.selected is not None:
-            self.ui.listWidget.insertItem(self.selected,
-                                            self.ui.listWidget_2.takeItem(self.selected).text())
-            self.selected = None
-        else:
-            pass
+        try:
+            if self.selected is not None:
+                self.ui.listWidget.insertItem(self.selected,
+                                                self.ui.listWidget_2.takeItem(self.selected).text())
+                self.selected = None
+            else:
+                pass
+        except Exception:
+            QtWidgets.QMessageBox.information(self, "Облом", "Жми на кнопку выше!!!")
 
 
 if __name__ == '__main__':
