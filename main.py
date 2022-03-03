@@ -17,7 +17,15 @@ class App(QtWidgets.QMainWindow):
         self.ui.listWidget_2.clicked.connect(self.click_widget_2)
         self.ui.pushButton_right.clicked.connect(self.send_button)
         self.ui.pushButton_left.clicked.connect(self.resend_button)
+        self.ui.pushButton_enter.clicked.connect(self.enter_button)
         self.selected = None
+
+    def enter_button(self):
+        if '' != self.ui.lineEdit.text():
+            self.ui.listWidget.insertItem(0, self.ui.lineEdit.text())
+            self.ui.lineEdit.clear()
+        else:
+            QtWidgets.QMessageBox.information(self, "Сообщение", "Введите строку")
 
     def click_widget_1(self):
         self.selected = self.ui.listWidget.currentRow()
@@ -34,7 +42,7 @@ class App(QtWidgets.QMainWindow):
             else:
                 pass
         except Exception:
-            QtWidgets.QMessageBox.information(self, "Облом", "Жми на кнопку ниже!!!")
+            QtWidgets.QMessageBox.information(self, "Внимание", "Жми на кнопку ниже!!!")
 
     def resend_button(self):
         try:
@@ -45,7 +53,7 @@ class App(QtWidgets.QMainWindow):
             else:
                 pass
         except Exception:
-            QtWidgets.QMessageBox.information(self, "Облом", "Жми на кнопку выше!!!")
+            QtWidgets.QMessageBox.information(self, "Внимание", "Жми на кнопку выше!!!")
 
 
 if __name__ == '__main__':
