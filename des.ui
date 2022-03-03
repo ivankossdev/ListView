@@ -6,13 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>355</width>
+    <width>322</width>
     <height>224</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>355</width>
+    <width>322</width>
     <height>224</height>
    </size>
   </property>
@@ -26,54 +26,91 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pushButton_right">
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>20</y>
-      <width>71</width>
+      <y>40</y>
+      <width>41</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Send</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="res.qrc">
+      <normaloff>:/icon/ArrowR1.png</normaloff>:/icon/ArrowR1.png</iconset>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pushButton_left">
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>50</y>
-      <width>71</width>
+      <y>70</y>
+      <width>41</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Resend</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="res.qrc">
+      <normaloff>:/icon/ArrowL1.png</normaloff>:/icon/ArrowL1.png</iconset>
     </property>
    </widget>
    <widget class="QListWidget" name="listWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>40</y>
       <width>121</width>
-      <height>201</height>
+      <height>171</height>
      </rect>
     </property>
    </widget>
    <widget class="QListWidget" name="listWidget_2">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>10</y>
+      <x>190</x>
+      <y>40</y>
       <width>121</width>
-      <height>201</height>
+      <height>171</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>251</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_enter">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>10</y>
+      <width>41</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="res.qrc">
+      <normaloff>:/icon/enter-arrow.png</normaloff>:/icon/enter-arrow.png</iconset>
     </property>
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

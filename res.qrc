@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>ArrowL1.png</file>
+    <file>enter-arrow.png</file>
+    <file>ArrowR1.png</file>
+  </qresource>
+</RCC>

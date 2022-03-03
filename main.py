@@ -2,7 +2,7 @@ import sys
 from des import *
 # pyuic5 des.ui -o des.py
 # pyinstaller -F -w main.py
-# pyrcc5 res.qrc -o des.py
+# pyrcc5 res.qrc -o res_rc.py
 # pyinstaller -F -w -i BD.ico main.py
 
 class App(QtWidgets.QMainWindow):
@@ -15,8 +15,8 @@ class App(QtWidgets.QMainWindow):
         self.ui.listWidget.addItems(['красный', 'синий', 'зеленый', 'черный'])
         self.ui.listWidget.clicked.connect(self.click_widget_1)
         self.ui.listWidget_2.clicked.connect(self.click_widget_2)
-        self.ui.pushButton.clicked.connect(self.send_button)
-        self.ui.pushButton_2.clicked.connect(self.resend_button)
+        self.ui.pushButton_right.clicked.connect(self.send_button)
+        self.ui.pushButton_left.clicked.connect(self.resend_button)
         self.selected = None
 
     def click_widget_1(self):
