@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="icon">
+    <file>icon_exit.png</file>
+    <file>icon_open_file.png</file>
+    <file>icon_save.png</file>
     <file>ArrowL1.png</file>
     <file>enter-arrow.png</file>
     <file>ArrowR1.png</file>
