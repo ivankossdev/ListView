@@ -20,7 +20,19 @@ class App(QtWidgets.QMainWindow):
         self.ui.pushButton_right.clicked.connect(self.send_button)
         self.ui.pushButton_left.clicked.connect(self.resend_button)
         self.ui.pushButton_enter.clicked.connect(self.enter_button)
+        self.ui.pushButton_exit.clicked.connect(self.exit_program)
+        self.ui.pushButton_open.clicked.connect(self.open_file)
+        self.ui.pushButton_save.clicked.connect(self.save_file)
         self.selected = None
+
+    def save_file(self):
+        QtWidgets.QMessageBox.information(self, "Сообщение", "Нажата кнопка сохранить")
+
+    def open_file(self):
+        QtWidgets.QMessageBox.information(self, "Сообщение", "Нажата кнопка открыть")
+
+    def exit_program(self):
+        exit()
 
     def enter_button(self):
         if '' != self.ui.lineEdit.text():

@@ -141,7 +141,7 @@
       <normaloff>:/icon/icon_open_file.png</normaloff>:/icon/icon_open_file.png</iconset>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pushButton_exit">
     <property name="geometry">
      <rect>
       <x>110</x>
