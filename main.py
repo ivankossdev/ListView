@@ -1,5 +1,7 @@
 import sys
+from ReaderCSV import read_file, list_convertor
 from des import *
+
 # pyuic5 des.ui -o des.py
 # pyinstaller -F -w main.py
 # pyrcc5 res.qrc -o res_rc.py
@@ -10,9 +12,9 @@ class App(QtWidgets.QMainWindow):
         super(App, self).__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        # self.ui.listWidget.insertItem(0, 'Red')
-        # self.ui.listWidget.insertItem(1, 'Orange')
-        self.ui.listWidget.addItems(['красный', 'синий', 'зеленый', 'черный'])
+        self.list_1 = list_convertor(read_file())[0]
+        self.list_2 = list_convertor(read_file())[1]
+        self.ui.listWidget.addItems(self.list_1)
         self.ui.listWidget.clicked.connect(self.click_widget_1)
         self.ui.listWidget_2.clicked.connect(self.click_widget_2)
         self.ui.pushButton_right.clicked.connect(self.send_button)
