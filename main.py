@@ -12,6 +12,7 @@ class App(QtWidgets.QMainWindow):
         super(App, self).__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        read_file()
         self.list_1 = list_convertor(read_file())[0]
         self.list_2 = list_convertor(read_file())[1]
         self.ui.listWidget.clicked.connect(self.click_widget_1)
