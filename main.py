@@ -35,10 +35,10 @@ class App(QtWidgets.QMainWindow):
                 self.ui.listWidget_2.addItem(x)
 
     def save_file(self):
-        li = []
+        li_1 = []
         for x in range(self.ui.listWidget.count()):
-            li.append(self.ui.listWidget.item(x).text())
-        write_file(li)
+            li_1.append(self.ui.listWidget.item(x).text())
+        write_file(li_1)
 
     def open_file(self):
         QtWidgets.QMessageBox.information(self, "Сообщение", "Нажата кнопка открыть")
