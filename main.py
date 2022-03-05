@@ -14,7 +14,6 @@ class App(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.list_1 = list_convertor(read_file())[0]
         self.list_2 = list_convertor(read_file())[1]
-        self.ui.listWidget.addItems(self.list_1)
         self.ui.listWidget.clicked.connect(self.click_widget_1)
         self.ui.listWidget_2.clicked.connect(self.click_widget_2)
         self.ui.pushButton_right.clicked.connect(self.right_button)
@@ -24,13 +23,22 @@ class App(QtWidgets.QMainWindow):
         self.ui.pushButton_open.clicked.connect(self.open_file)
         self.ui.pushButton_save.clicked.connect(self.save_file)
         self.selected = None
+        self.print_rows()
+
+    def print_rows(self):
+        for x in self.list_1:
+            if "empty" != x:
+                 self.ui.listWidget.addItem(x)
+
+        for x in self.list_2:
+            if "empty" != x:
+                self.ui.listWidget_2.addItem(x)
 
     def save_file(self):
         li = []
         for x in range(self.ui.listWidget.count()):
             li.append(self.ui.listWidget.item(x).text())
         write_file(li)
-
 
     def open_file(self):
         QtWidgets.QMessageBox.information(self, "Сообщение", "Нажата кнопка открыть")
