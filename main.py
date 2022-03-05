@@ -17,8 +17,8 @@ class App(QtWidgets.QMainWindow):
         self.ui.listWidget.addItems(self.list_1)
         self.ui.listWidget.clicked.connect(self.click_widget_1)
         self.ui.listWidget_2.clicked.connect(self.click_widget_2)
-        self.ui.pushButton_right.clicked.connect(self.send_button)
-        self.ui.pushButton_left.clicked.connect(self.resend_button)
+        self.ui.pushButton_right.clicked.connect(self.right_button)
+        self.ui.pushButton_left.clicked.connect(self.button_left)
         self.ui.pushButton_enter.clicked.connect(self.enter_button)
         self.ui.pushButton_exit.clicked.connect(self.exit_program)
         self.ui.pushButton_open.clicked.connect(self.open_file)
@@ -29,7 +29,8 @@ class App(QtWidgets.QMainWindow):
         li = []
         for x in range(self.ui.listWidget.count()):
             li.append(self.ui.listWidget.item(x).text())
-        write_file(li[::-1])
+        write_file(li)
+
 
     def open_file(self):
         QtWidgets.QMessageBox.information(self, "Сообщение", "Нажата кнопка открыть")
@@ -39,7 +40,7 @@ class App(QtWidgets.QMainWindow):
 
     def enter_button(self):
         if '' != self.ui.lineEdit.text():
-            self.ui.listWidget.insertItem(0, self.ui.lineEdit.text())
+            self.ui.listWidget.insertItem(self.ui.listWidget.count(), self.ui.lineEdit.text())
             self.ui.lineEdit.clear()
         else:
             QtWidgets.QMessageBox.information(self, "Сообщение", "Введите строку")
@@ -50,10 +51,10 @@ class App(QtWidgets.QMainWindow):
     def click_widget_2(self):
         self.selected = self.ui.listWidget_2.currentRow()
 
-    def send_button(self):
+    def right_button(self):
         try:
             if self.selected is not None:
-                self.ui.listWidget_2.insertItem(self.selected,
+                self.ui.listWidget_2.insertItem(self.ui.listWidget_2.count(),
                                                 self.ui.listWidget.takeItem(self.selected).text())
                 self.selected = None
             else:
@@ -61,11 +62,11 @@ class App(QtWidgets.QMainWindow):
         except Exception:
             QtWidgets.QMessageBox.information(self, "Внимание", "Жми на кнопку ниже!!!")
 
-    def resend_button(self):
+    def button_left(self):
         try:
             if self.selected is not None:
-                self.ui.listWidget.insertItem(self.selected,
-                                                self.ui.listWidget_2.takeItem(self.selected).text())
+                self.ui.listWidget.insertItem(self.ui.listWidget.count(),
+                                              self.ui.listWidget_2.takeItem(self.selected).text())
                 self.selected = None
             else:
                 pass
