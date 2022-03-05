@@ -1,5 +1,5 @@
 import sys
-from ReaderCSV import read_file, list_convertor
+from ReaderCSV import read_file, list_convertor, write_file
 from des import *
 
 # pyuic5 des.ui -o des.py
@@ -26,7 +26,10 @@ class App(QtWidgets.QMainWindow):
         self.selected = None
 
     def save_file(self):
-        QtWidgets.QMessageBox.information(self, "Сообщение", "Нажата кнопка сохранить")
+        li = []
+        for x in range(self.ui.listWidget.count()):
+            li.append(self.ui.listWidget.item(x).text())
+        write_file(li[::-1])
 
     def open_file(self):
         QtWidgets.QMessageBox.information(self, "Сообщение", "Нажата кнопка открыть")
