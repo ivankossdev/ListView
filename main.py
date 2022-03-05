@@ -27,18 +27,21 @@ class App(QtWidgets.QMainWindow):
 
     def print_rows(self):
         for x in self.list_1:
-            if "empty" != x:
+            if "" != x:
                  self.ui.listWidget.addItem(x)
 
         for x in self.list_2:
-            if "empty" != x:
+            if "" != x:
                 self.ui.listWidget_2.addItem(x)
 
     def save_file(self):
         li_1 = []
+        li_2 = []
         for x in range(self.ui.listWidget.count()):
             li_1.append(self.ui.listWidget.item(x).text())
-        write_file(li_1)
+        for y in range(self.ui.listWidget_2.count()):
+            li_2.append(self.ui.listWidget_2.item(y).text())
+        write_file(li_1, li_2)
 
     def open_file(self):
         QtWidgets.QMessageBox.information(self, "Сообщение", "Нажата кнопка открыть")

@@ -1,12 +1,14 @@
 import csv
 
-def write_file(li_1, li_2="empty"):
+def write_file(li_1, li_2=""):
     with open("task.csv", "w", newline='') as csvFile:
         task_header = ["List_1", "List_2"]
         writer_file = csv.DictWriter(csvFile, fieldnames=task_header)
         writer_file.writeheader()
         for x in li_1:
-            writer_file.writerow({"List_1": x, "List_2": li_2})
+            writer_file.writerow({"List_1": x})
+        for y in li_2:
+            writer_file.writerow({"List_2": y})
 
 def read_file():
     try:
