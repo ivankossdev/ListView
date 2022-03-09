@@ -17,6 +17,7 @@ class App(QtWidgets.QMainWindow):
         self.list_2 = list_convertor(read_file())[1]
         self.ui.listWidget.clicked.connect(self.click_widget_1)
         self.ui.listWidget_2.clicked.connect(self.click_widget_2)
+        self.ui.lineEdit.editingFinished.connect(self.enter_button)
         self.ui.pushButton_right.clicked.connect(self.right_button)
         self.ui.pushButton_left.clicked.connect(self.button_left)
         self.ui.pushButton_enter.clicked.connect(self.enter_button)
@@ -67,8 +68,6 @@ class App(QtWidgets.QMainWindow):
         if '' != self.ui.lineEdit.text():
             self.ui.listWidget.insertItem(self.ui.listWidget.count(), self.ui.lineEdit.text())
             self.ui.lineEdit.clear()
-        else:
-            QtWidgets.QMessageBox.information(self, "Сообщение", "Введите строку")
 
     def click_widget_1(self):
         self.selected = self.ui.listWidget.currentRow()
