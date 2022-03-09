@@ -23,8 +23,16 @@ class App(QtWidgets.QMainWindow):
         self.ui.pushButton_exit.clicked.connect(self.exit_program)
         self.ui.pushButton_open.clicked.connect(self.open_file)
         self.ui.pushButton_save.clicked.connect(self.save_file)
+        self.ui.pushButton_dalete.clicked.connect(self.delete_all)
         self.selected = None
         self.print_rows()
+
+    def delete_all(self):
+
+        write_file([])
+        self.ui.listWidget.clear()
+        self.ui.listWidget_2.clear()
+        self.save_file()
 
     def print_rows(self):
         for x in self.list_1:
@@ -48,6 +56,7 @@ class App(QtWidgets.QMainWindow):
         QtWidgets.QMessageBox.information(self, "Сообщение", "Нажата кнопка открыть")
 
     def exit_program(self):
+        self.save_file()
         exit()
 
     def enter_button(self):

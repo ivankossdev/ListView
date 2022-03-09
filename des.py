@@ -70,6 +70,13 @@ class Ui_MainWindow(object):
         icon5.addPixmap(QtGui.QPixmap(":/icon/icon_exit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_exit.setIcon(icon5)
         self.pushButton_exit.setObjectName("pushButton_exit")
+        self.pushButton_dalete = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_dalete.setGeometry(QtCore.QRect(140, 220, 41, 31))
+        self.pushButton_dalete.setText("")
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap(":/icon/icon_garbage.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_dalete.setIcon(icon6)
+        self.pushButton_dalete.setObjectName("pushButton_dalete")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)

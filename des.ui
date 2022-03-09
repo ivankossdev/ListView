@@ -158,6 +158,23 @@
       <normaloff>:/icon/icon_exit.png</normaloff>:/icon/icon_exit.png</iconset>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_dalete">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>220</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="res.qrc">
+      <normaloff>:/icon/icon_garbage.png</normaloff>:/icon/icon_garbage.png</iconset>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources>
