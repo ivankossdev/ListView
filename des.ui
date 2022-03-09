@@ -226,17 +226,23 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QWidget" name="widget" native="true">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>230</x>
       <y>10</y>
-      <width>201</width>
+      <width>81</width>
       <height>31</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/icon/logo_sm.png);</string>
+    <property name="font">
+     <font>
+      <family>Vijaya</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Chek List</string>
     </property>
    </widget>
   </widget>

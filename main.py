@@ -27,6 +27,18 @@ class App(QtWidgets.QMainWindow):
         self.ui.pushButton_dalete.clicked.connect(self.delete_all)
         self.selected = None
         self.print_rows()
+        self.ui.listWidget.installEventFilter(self)
+
+    def eventFilter(self, source, event):
+        if (event.type() == QtCore.QEvent.ContextMenu and
+                source is self.ui.listWidget):
+            menu = QtWidgets.QMenu()
+            menu.addAction('Удалить')
+            if menu.exec_(event.globalPos()):
+                item = source.itemAt(event.pos())
+                print(item.text())
+            return True
+        return super(App, self).eventFilter(source, event)
 
     def delete_all(self):
         result = QtWidgets.QMessageBox.question(self, 'Внимаение', 'Удалить все записи?',

@@ -96,10 +96,13 @@ class Ui_MainWindow(object):
         self.line.setFrameShape(QtWidgets.QFrame.HLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
-        self.widget = QtWidgets.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(200, 10, 201, 31))
-        self.widget.setStyleSheet("image: url(:/icon/logo_sm.png);")
-        self.widget.setObjectName("widget")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(230, 10, 81, 31))
+        font = QtGui.QFont()
+        font.setFamily("Vijaya")
+        font.setPointSize(18)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -110,4 +113,5 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Check List"))
         self.label_2.setText(_translate("MainWindow", "Task"))
         self.label_3.setText(_translate("MainWindow", "Ready"))
+        self.label.setText(_translate("MainWindow", "Chek List"))
 import res_rc
