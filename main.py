@@ -63,6 +63,8 @@ class App(QtWidgets.QMainWindow):
         if result == QtWidgets.QMessageBox.Yes:
             self.save_file()
             exit()
+        else:
+            exit()
 
     def enter_button(self):
         if '' != self.ui.lineEdit.text():

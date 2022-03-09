@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icon">
+    <file>logo_sm.png</file>
     <file>icon_garbage.png</file>
     <file>icon_exit.png</file>
     <file>icon_open_file.png</file>
