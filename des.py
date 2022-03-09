@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(322, 263)
+        MainWindow.resize(322, 260)
         MainWindow.setMinimumSize(QtCore.QSize(322, 224))
         MainWindow.setMaximumSize(QtCore.QSize(322, 300))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -43,7 +43,7 @@ class Ui_MainWindow(object):
         self.lineEdit.setGeometry(QtCore.QRect(10, 50, 251, 21))
         self.lineEdit.setObjectName("lineEdit")
         self.pushButton_enter = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_enter.setGeometry(QtCore.QRect(270, 50, 41, 23))
+        self.pushButton_enter.setGeometry(QtCore.QRect(270, 49, 41, 22))
         self.pushButton_enter.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(":/icon/enter-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -77,6 +77,13 @@ class Ui_MainWindow(object):
         icon6.addPixmap(QtGui.QPixmap(":/icon/icon_garbage.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_dalete.setIcon(icon6)
         self.pushButton_dalete.setObjectName("pushButton_dalete")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(190, 10, 91, 31))
+        font = QtGui.QFont()
+        font.setFamily("Vijaya")
+        font.setPointSize(20)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -84,5 +91,6 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Check List"))
+        self.label.setText(_translate("MainWindow", "Chek List"))
 import res_rc

@@ -31,3 +31,11 @@ def list_convertor(item):
             else:
                 list_widget_2.append(item[y][x])
     return list_widget, list_widget_2
+
+def delete_row(row):
+    buffer = read_file()
+    for x, y in buffer:
+        if x == row:
+            print(x)
+        elif y == row:
+            print(y)

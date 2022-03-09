@@ -28,17 +28,18 @@ class App(QtWidgets.QMainWindow):
         self.print_rows()
 
     def delete_all(self):
-
-        write_file([])
-        self.ui.listWidget.clear()
-        self.ui.listWidget_2.clear()
-        self.save_file()
+        result = QtWidgets.QMessageBox.question(self, 'Внимаение', 'Удалить все записи?',
+                                                    QtWidgets.QMessageBox.Yes, QtWidgets.QMessageBox.No)
+        if result == QtWidgets.QMessageBox.Yes:
+            # write_file([])
+            self.ui.listWidget.clear()
+            self.ui.listWidget_2.clear()
+            # self.save_file()
 
     def print_rows(self):
         for x in self.list_1:
             if "" != x:
                  self.ui.listWidget.addItem(x)
-
         for x in self.list_2:
             if "" != x:
                 self.ui.listWidget_2.addItem(x)
@@ -56,8 +57,11 @@ class App(QtWidgets.QMainWindow):
         QtWidgets.QMessageBox.information(self, "Сообщение", "Нажата кнопка открыть")
 
     def exit_program(self):
-        self.save_file()
-        exit()
+        result = QtWidgets.QMessageBox.question(self, 'Внимаение', 'Сохранить изменения?',
+                                                    QtWidgets.QMessageBox.Yes, QtWidgets.QMessageBox.No)
+        if result == QtWidgets.QMessageBox.Yes:
+            self.save_file()
+            exit()
 
     def enter_button(self):
         if '' != self.ui.lineEdit.text():
