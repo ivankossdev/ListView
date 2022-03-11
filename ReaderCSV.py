@@ -34,8 +34,10 @@ def list_convertor(item):
 
 def delete_row(row):
     buffer = read_file()
-    for x, y in buffer:
-        if x == row:
-            print(x)
-        elif y == row:
-            print(y)
+    for x in range(1, len(buffer)):
+        if row == buffer[x][0]:
+            buffer.remove(buffer[x])
+            return list_convertor(buffer)
+
+
+print(delete_row('2'))
