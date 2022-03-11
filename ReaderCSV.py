@@ -38,6 +38,3 @@ def delete_row(row):
         if row == buffer[x][0]:
             buffer.remove(buffer[x])
             return list_convertor(buffer)
-
-
-print(delete_row('2'))

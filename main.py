@@ -35,8 +35,8 @@ class App(QtWidgets.QMainWindow):
             menu = QtWidgets.QMenu()
             menu.addAction('Удалить')
             if menu.exec_(event.globalPos()):
-                item = source.itemAt(event.pos())
-                print(item.text())
+                # self.selected = source.itemAt(event.pos()).text()
+                source.takeItem(self.ui.listWidget.currentRow()).text()
             return True
         return super(App, self).eventFilter(source, event)
 
