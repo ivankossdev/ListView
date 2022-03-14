@@ -40,8 +40,10 @@ class App(QtWidgets.QMainWindow):
             delete_all = context_menu.addAction('Delete all')
             action = context_menu.exec_(event.globalPos())
             if action == edit:
-                self.ui.lineEdit.insert(source.itemAt(event.pos()).text())
-                self.edit_state = True
+                if self.selected != None:
+                    self.ui.lineEdit.insert(source.itemAt(event.pos()).text())
+                    self.edit_state = True
+                    self.selected = None
             elif action == delete_row:
                 if self.selected != None:
                     self.selected = self.ui.listWidget.currentRow()
