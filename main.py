@@ -26,6 +26,8 @@ class App(QtWidgets.QMainWindow):
         self.ui.pushButton_save.clicked.connect(self.save_file)
         self.ui.pushButton_dalete.clicked.connect(self.delete_row)
         self.ui.pushButton_dalete.setHidden(True)
+        self.ui.pushButton_edit.setHidden(True)
+        self.ui.pushButton_delete_row.setHidden(True)
         self.selected = None
         self.edit_state = False
         self.print_rows()

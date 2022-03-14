@@ -245,6 +245,40 @@
      <string>Chek List</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_delete_row">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>310</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="res.qrc">
+      <normaloff>:/icon/icon_delete_row.png</normaloff>:/icon/icon_delete_row.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_edit">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>270</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="res.qrc">
+      <normaloff>:/icon/icon_edit.png</normaloff>:/icon/icon_edit.png</iconset>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources>

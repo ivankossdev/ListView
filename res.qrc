@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="icon">
+    <file>icon_edit.png</file>
+    <file>icon_delete_row.png</file>
     <file>icon_garbage.png</file>
     <file>icon_exit.png</file>
     <file>icon_open_file.png</file>
