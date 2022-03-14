@@ -26,9 +26,6 @@ class App(QtWidgets.QMainWindow):
         self.ui.pushButton_save.clicked.connect(self.save_file)
         self.ui.pushButton_dalete.clicked.connect(self.delete_all)
         self.ui.pushButton_dalete.setEnabled(False)
-        self.ui.pushButton_edit.setEnabled(False)
-        self.ui.pushButton_delete_row.clicked.connect(self.delete_row)
-        self.ui.pushButton_delete_row.setEnabled(False)
         self.selected = None
         self.edit_state = True
         self.print_rows()
@@ -39,24 +36,25 @@ class App(QtWidgets.QMainWindow):
                 source is self.ui.listWidget):
             context_menu = QtWidgets.QMenu()
             edit = context_menu.addAction('Edit')
-            end_edit = context_menu.addAction('End Edit')
+            delete_row = context_menu.addAction('Delete row')
+            delete_all = context_menu.addAction('Delete all')
             action = context_menu.exec_(event.globalPos())
             if action == edit:
-                # self.selected = source.itemAt(event.pos()).text()
-                # source.takeItem(self.ui.listWidget.currentRow()).text()
-                self.buttons_set_enebled(True)
-            elif action == end_edit:
-                self.buttons_set_enebled(False)
+                # source.itemAt(event.pos()).text()
+                print(source.itemAt(event.pos()).text())
+            elif action == delete_row:
+                if self.selected != None:
+                    self.selected = self.ui.listWidget.currentRow()
+                    self.ui.listWidget.takeItem(self.selected)
+                    self.selected = None
+            elif delete_all == action:
+                self.ui.pushButton_dalete.setEnabled(True)
             return True
         return super(App, self).eventFilter(source, event)
 
-    def buttons_set_enebled(self, state):
-        self.ui.pushButton_dalete.setEnabled(state)
-        self.ui.pushButton_edit.setEnabled(state)
-        self.ui.pushButton_delete_row.setEnabled(state)
-
     def delete_row(self):
-        print(self.ui.listWidget.takeItem(self.ui.listWidget.currentRow()).text())
+        row = self.ui.listWidget.currentRow()
+        print(self.ui.listWidget.takeItem(row).text())
 
     def delete_all(self):
         result = QtWidgets.QMessageBox.question(self, 'Внимаение', 'Удалить все записи?',
@@ -64,6 +62,7 @@ class App(QtWidgets.QMainWindow):
         if result == QtWidgets.QMessageBox.Yes:
             self.ui.listWidget.clear()
             self.ui.listWidget_2.clear()
+            self.ui.pushButton_dalete.setEnabled(False)
 
     def print_rows(self):
         for x in self.list_1:
