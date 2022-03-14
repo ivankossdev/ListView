@@ -38,8 +38,6 @@ class App(QtWidgets.QMainWindow):
                 # self.selected = source.itemAt(event.pos()).text()
                 source.takeItem(self.ui.listWidget.currentRow()).text()
             return True
-
-
         return super(App, self).eventFilter(source, event)
 
     def delete_all(self):
