@@ -26,6 +26,7 @@ class App(QtWidgets.QMainWindow):
         self.ui.pushButton_save.clicked.connect(self.save_file)
         self.ui.pushButton_dalete.clicked.connect(self.delete_all)
         self.selected = None
+        self.edit_state = False
         self.print_rows()
         self.ui.listWidget.installEventFilter(self)
 
@@ -33,12 +34,17 @@ class App(QtWidgets.QMainWindow):
         if (event.type() == QtCore.QEvent.ContextMenu and
                 source is self.ui.listWidget):
             menu = QtWidgets.QMenu()
-            menu.addAction('Удалить')
+            menu.addAction('Edit')
             if menu.exec_(event.globalPos()):
                 # self.selected = source.itemAt(event.pos()).text()
-                source.takeItem(self.ui.listWidget.currentRow()).text()
+                # source.takeItem(self.ui.listWidget.currentRow()).text()
+                print(menu.t)
+                self.edit()
             return True
         return super(App, self).eventFilter(source, event)
+
+    def edit(self):
+        print('edit')
 
     def delete_all(self):
         result = QtWidgets.QMessageBox.question(self, 'Внимаение', 'Удалить все записи?',
