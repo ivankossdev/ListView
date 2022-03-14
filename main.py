@@ -27,7 +27,7 @@ class App(QtWidgets.QMainWindow):
         self.ui.pushButton_dalete.clicked.connect(self.delete_all)
         self.ui.pushButton_dalete.setEnabled(False)
         self.selected = None
-        self.edit_state = True
+        self.edit_state = False
         self.print_rows()
         self.ui.listWidget.installEventFilter(self)
 
@@ -40,8 +40,8 @@ class App(QtWidgets.QMainWindow):
             delete_all = context_menu.addAction('Delete all')
             action = context_menu.exec_(event.globalPos())
             if action == edit:
-                # source.itemAt(event.pos()).text()
-                print(source.itemAt(event.pos()).text())
+                self.ui.lineEdit.insert(source.itemAt(event.pos()).text())
+                self.edit_state = True
             elif action == delete_row:
                 if self.selected != None:
                     self.selected = self.ui.listWidget.currentRow()
@@ -51,10 +51,6 @@ class App(QtWidgets.QMainWindow):
                 self.ui.pushButton_dalete.setEnabled(True)
             return True
         return super(App, self).eventFilter(source, event)
-
-    def delete_row(self):
-        row = self.ui.listWidget.currentRow()
-        print(self.ui.listWidget.takeItem(row).text())
 
     def delete_all(self):
         result = QtWidgets.QMessageBox.question(self, 'Внимаение', 'Удалить все записи?',
@@ -94,9 +90,18 @@ class App(QtWidgets.QMainWindow):
             exit()
 
     def enter_button(self):
-        if '' != self.ui.lineEdit.text():
-            self.ui.listWidget.insertItem(self.ui.listWidget.count(), self.ui.lineEdit.text())
+        if self.edit_state:
+            self.edit_state = False
+            row = self.ui.listWidget.currentRow()
+            insert_line = self.ui.lineEdit.text()
+            self.ui.listWidget.takeItem(row)
+            self.ui.listWidget.insertItem(row, insert_line)
             self.ui.lineEdit.clear()
+        else:
+            if '' != self.ui.lineEdit.text():
+                print('asd')
+                self.ui.listWidget.insertItem(self.ui.listWidget.count(), self.ui.lineEdit.text())
+                self.ui.lineEdit.clear()
 
     def click_widget_1(self):
         self.selected = self.ui.listWidget.currentRow()
