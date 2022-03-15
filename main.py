@@ -40,10 +40,13 @@ class App(QtWidgets.QMainWindow):
             delete_all = context_menu.addAction('Delete all')
             action = context_menu.exec_(event.globalPos())
             if action == edit:
-                if self.selected is not None:
-                    self.ui.lineEdit.insert(source.itemAt(event.pos()).text())
-                    self.edit_state = True
-                    self.selected = None
+                try:
+                    if self.selected is not None:
+                        self.ui.lineEdit.insert(source.itemAt(event.pos()).text())
+                        self.edit_state = True
+                        self.selected = None
+                except AttributeError:
+                    pass
             elif action == delete_row:
                 if self.selected is not None:
                     self.selected = self.ui.listWidget.currentRow()
@@ -60,6 +63,8 @@ class App(QtWidgets.QMainWindow):
         if result == QtWidgets.QMessageBox.Yes:
             self.ui.listWidget.clear()
             self.ui.listWidget_2.clear()
+            self.ui.pushButton_dalete.setEnabled(False)
+        else:
             self.ui.pushButton_dalete.setEnabled(False)
 
     def print_rows(self):
