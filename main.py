@@ -59,7 +59,7 @@ class App(QtWidgets.QMainWindow):
 
     def delete_all(self):
         result = QtWidgets.QMessageBox.question(self, 'Внимаение', 'Удалить все записи?',
-                                                    QtWidgets.QMessageBox.Yes, QtWidgets.QMessageBox.No)
+                                                QtWidgets.QMessageBox.Yes, QtWidgets.QMessageBox.No)
         if result == QtWidgets.QMessageBox.Yes:
             self.ui.listWidget.clear()
             self.ui.listWidget_2.clear()
@@ -70,7 +70,7 @@ class App(QtWidgets.QMainWindow):
     def print_rows(self):
         for x in self.list_1:
             if "" != x:
-                 self.ui.listWidget.addItem(x)
+                self.ui.listWidget.addItem(x)
         for x in self.list_2:
             if "" != x:
                 self.ui.listWidget_2.addItem(x)
@@ -85,11 +85,19 @@ class App(QtWidgets.QMainWindow):
         write_file(li_1, li_2)
 
     def open_file(self):
-        QtWidgets.QMessageBox.information(self, "Сообщение", "Нажата кнопка открыть")
+        # QtWidgets.QMessageBox.information(self, "Сообщение", "Нажата кнопка открыть")
+        file_path = QtWidgets.QFileDialog.getOpenFileNames(self, 'Открыть файл', 'task', '*.csv')
+        self.ui.listWidget.clear()
+        self.ui.listWidget_2.clear()
+        path = file_path[0][0]
+        read_file(path)
+        self.list_1 = list_convertor(read_file(path))[0]
+        self.list_2 = list_convertor(read_file(path))[1]
+        self.print_rows()
 
     def exit_program(self):
         result = QtWidgets.QMessageBox.question(self, 'Внимаение', 'Сохранить изменения?',
-                                                    QtWidgets.QMessageBox.Yes, QtWidgets.QMessageBox.No)
+                                                QtWidgets.QMessageBox.Yes, QtWidgets.QMessageBox.No)
         if result == QtWidgets.QMessageBox.Yes:
             self.save_file()
             exit()

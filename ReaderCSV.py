@@ -10,9 +10,9 @@ def write_file(li_1, li_2=""):
         for y in li_2:
             writer_file.writerow({"List_2": y})
 
-def read_file():
+def read_file(path="task.csv"):
     try:
-        with open("task.csv", "r", newline="") as file:
+        with open(path, "r", newline="") as file:
             reader = csv.reader(file)
             buffer = []
             for x in reader:
